@@ -4,7 +4,7 @@
 		module="csye7200_dataminning$sources"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190313181836"
+		publication="20190318130323"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

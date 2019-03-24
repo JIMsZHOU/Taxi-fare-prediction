@@ -15,9 +15,11 @@ object DataLoader extends App {
     traindata
   }
 
-//  val train = DataLoader.readData("src/data/train.csv", "csv")
+  val train = DataLoader.readData("src/data/train.csv", "csv")
   val test = DataLoader.readData("src/data/test.csv", "csv")
 
-//  train.printSchema()
+  train.printSchema()
   test.show(5)
+
+  train.na.drop()
 }

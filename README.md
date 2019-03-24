@@ -1,13 +1,17 @@
 # CSYE7200_FinalProject
 
 ### NYC Taxi Fare Prediction
-Inspired by a [Kaggle Competition](https://www.kaggle.com/c/new-york-city-taxi-fare-prediction), this project will be based on Spark to ingest 9914 test taxi fare data into a data(ML) model, and generate the successful prediction rate which is expected to be above 75%. Besides, the test prediction result will be showed in map which is built by Play Framework. The whole project will be writed in scala.
+Inspired by a [Kaggle Competition](https://www.kaggle.com/c/new-york-city-taxi-fare-prediction), this project will be based on Spark to ingest test taxi fare data into a data(ML) model, and root mean squared error will smaller than *5*. Besides, the test prediction result will be showed in map which is built by Play Framework. The whole project will be writed in scala.
 
 ### Teammate
 - [Qixiang Zhou](https://github.com/JIMsZHOU)
 - [Yujun Xie](https://github.com/xieyuju)
 
 ### Data Feature
+
+* File size: 5.7 GB
+* Number of rows: 1,300,000 lines
+
 - key - Unique string
 - pickup_datetime - timestamp value indicating when the taxi ride started.
 - pickup_longitude - float for longitude coordinate of where the taxi ride started.
