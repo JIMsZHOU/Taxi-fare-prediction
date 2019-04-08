@@ -21,4 +21,12 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   def index() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index("Welcome to Play!"))
   }
+
+  def map() = Action { implicit  request: Request[AnyContent] =>
+    Ok(views.html.map())
+  }
+
+  def myMap() = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.MyMap())
+  }
 }
