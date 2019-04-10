@@ -2,13 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5d5271c-8872-402c-8369-5ea3a1e6f8a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/Record.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/views/MyMap.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/views/map.scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/public/javascripts/googleMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/datas/MyRecord.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/datas/datasetProcess.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/datas/formModify.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/metadata/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/metadata/.part-00000.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/metadata/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/metadata/part-00000" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/0_vecAssembler_2d819bb29da4/metadata/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/0_vecAssembler_2d819bb29da4/metadata/.part-00000.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/0_vecAssembler_2d819bb29da4/metadata/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/0_vecAssembler_2d819bb29da4/metadata/part-00000" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00000-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00001-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00002-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00003-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00004-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00005-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00006-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/.part-00007-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00000-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00001-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00002-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00003-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00004-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00005-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00006-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/data/part-00007-d7a45e94-7020-4652-baca-2f0406a91954-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/metadata/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/metadata/.part-00000.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/metadata/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/metadata/part-00000" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00000-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00001-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00002-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00003-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00004-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00005-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00006-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/.part-00007-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00000-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00001-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00002-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00003-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00004-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00005-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00006-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/model/trained_model/stages/1_gbtr_cda0d00c032d/treesMetadata/part-00007-6584719b-68e2-4d02-877f-7810a25b6428-c000.snappy.parquet" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ModelTrain.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ModelTrain.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/app/controllers/FormController.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/app/controllers/HomeController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/controllers/HomeController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/app/model/Record.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/app/views/MyMap.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/../csye7200_finalproject/app/views/MyMap.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/app/views/map.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../csye7200_finalproject/conf/application.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/../csye7200_finalproject/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/public/javascripts/MyMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../csye7200_finalproject/public/javascripts/MyMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csye7200_finalproject/public/javascripts/googleMap.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ModelTrain.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+            <state relative-caret-position="375">
+              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -41,14 +96,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data/test.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state>
-              <caret line="15" column="95" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -94,8 +142,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,13 +189,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553816736426" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554839217227" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -251,17 +299,19 @@
       <workItem from="1553721494551" duration="18132000" />
       <workItem from="1554237265035" duration="1638000" />
       <workItem from="1554394276013" duration="600000" />
+      <workItem from="1554758272558" duration="6714000" />
+      <workItem from="1554845560195" duration="2526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23652000" />
+    <option name="totallyTimeSpent" value="32892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="23" width="960" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37916666" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24479167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -319,8 +369,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/ModelTrain.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        <state relative-caret-position="375">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -328,15 +378,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data/test.csv">
-      <provider editor-type-id="text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret line="15" column="95" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">

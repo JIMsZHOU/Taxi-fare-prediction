@@ -37,6 +37,4 @@ object ModelTrain extends App {
 
   val model = pipeline.fit(train)
   model.save("/Users/jimzhou/Documents/GitHub/CSYE7200_FinalProject/csye7200_dataminning/src/model/" + "trained_model")
-
-  println("wait!")
 }

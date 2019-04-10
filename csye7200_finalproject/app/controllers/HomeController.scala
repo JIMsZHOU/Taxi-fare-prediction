@@ -1,9 +1,8 @@
 package controllers
 
 import javax.inject._
-import play.api._
 import play.api.mvc._
-
+import datas.MyRecord
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -18,15 +17,18 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
+
+
   def index() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index("Welcome to Play!"))
   }
 
-  def map() = Action { implicit  request: Request[AnyContent] =>
-    Ok(views.html.map())
+  def myMap() = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.MyMap(MyRecord.form))
   }
 
-  def myMap() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.MyMap())
+  def getFare() = Action {implicit request: Request[AnyContent] =>
+    val formData: MyRecord = MyRecord.form.bindFromRequest().get
+    Ok(formData.toString)
   }
 }

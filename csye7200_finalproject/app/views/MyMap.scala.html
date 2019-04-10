@@ -1,4 +1,7 @@
-@()
+@import helper._
+@import datas.MyRecord
+@(form: Form[MyRecord])
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,36 +60,30 @@
                 <div class="col-xl-8" id="showMap"></div>
                 <div class="col-xl" id="Form">
                     <div class="container">
-                        <form>
+                        @* @helper.form(action = helper.CSRF(routes.HomeController.getFare())) {*@
+                        <form method="post" action="@(routes.HomeController.getFare())">
                             <div class="form-group">
                                 <label for="pickupcoordinate">Pickup Coordinate</label>
-                                <input type="text" class="form-control" id="pickupcoordinate" placeholder="latitude">
-                                <input type="text" class="form-control" id="pickupcoordinate1" placeholder="longitude">
+                                <input name="@form("plat").label" type="text" class="form-control" id="pickupcoordinate" placeholder="latitude" value="@form("plat").value">
+                                <input name="@form("plng").label" type="text" class="form-control" id="pickupcoordinate1" placeholder="longitude" value="@form("plng").value">
                             </div>
                             <div class="form-group">
                                 <label for="dropoffcoordinate">Dropoff Coordinate</label>
-                                <input type="text" class="form-control" id="dropoffcoordinate" placeholder="latitude">
-                                <input type="text" class="form-control" id="dropoffcoordinate1" placeholder="longitude">
+                                <input name="dlat" type="text" class="form-control" id="dropoffcoordinate" placeholder="latitude" value="@form("dlat").value">
+                                <input name="dlng" type="text" class="form-control" id="dropoffcoordinate1" placeholder="longitude" value="@form("dlng").value">
                             </div>
                             <div class="form-group">
                                 <label for="passengernumber">Passenger Number</label>
-                                <select class="form-control" id="passengernumber">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
+                                <input name="pc" type="number" class="form-control" id="passengernumber" placeholder="1 ~ 6" value="@form("pc").value">
                             </div>
                             <div class="form-group">
                                 <label for="taxifare">Taxi Fare Predict</label>
-                                <input class="form-control" id="taxifare" placeholder="xx.xx$">
+                                <input name="fare" class="form-control" id="taxifare" placeholder="xx.xx$" value="@form("fare").value">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-link" type="button" id="getCoord">Position</button>
                                 <button type="submit" class="btn btn-primary">Check</button>
-                                <button type="submit" class="btn btn-secondary">Update</button>
+                                <button type="button" class="btn btn-secondary">Update</button>
                             </div>
                         </form>
                     </div>
