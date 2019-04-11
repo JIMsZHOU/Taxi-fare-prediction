@@ -2,6 +2,7 @@ import org.apache.spark.ml.Pipeline
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions._
 import org.apache.spark.ml.feature._
+import org.apache.spark.ml.tuning.CrossValidator
 
 /**
   * @project csye7200_dataminning
@@ -24,7 +25,7 @@ object ModelTrain extends App {
   val train3 = train2.na.drop()
   val train4 = train3.filter(col("diff_long") < 5).filter(col("diff_lat") < 5).filter(col("fare_amount") > 0).toDF()
   val train5 = train4.drop(col("pickup_datetime")).drop(col("key")).toDF()
-  val sampledData = train5.sample(true, 0.001)
+  val sampledData = train5.sample(true, 0.00001)
 
   val inputCol = sampledData.columns.filter(!_.equals("fare_amount"))
   val inputVec = new VectorAssembler().setInputCols(inputCol).setOutputCol("features")
@@ -34,7 +35,6 @@ object ModelTrain extends App {
   val gbt = new GBTRegressor().setLabelCol("fare_amount").setFeaturesCol("features")
   val pipeline = new Pipeline().setStages(Array(inputVec, gbt))
   val Array(train, test) = sampledData.randomSplit(Array(0.8, 0.2))
-
   val model = pipeline.fit(train)
   model.save("/Users/jimzhou/Documents/GitHub/CSYE7200_FinalProject/csye7200_dataminning/src/model/" + "trained_model")
 }

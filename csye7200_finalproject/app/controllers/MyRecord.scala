@@ -1,7 +1,7 @@
-package datas
+package controllers
 
-import play.api.data._
 import play.api.data.Forms._
+import play.api.data._
 import play.api.data.format.Formats._
 
 /**
