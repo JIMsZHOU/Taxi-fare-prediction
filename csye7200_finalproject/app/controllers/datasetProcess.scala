@@ -1,7 +1,5 @@
 package controllers
 
-import com.google.common.cache.{CacheBuilder, CacheLoader}
-import java.util.concurrent.TimeUnit
 import javax.inject.{Inject, Singleton}
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.ml.feature.VectorAssembler
@@ -10,7 +8,6 @@ import org.apache.spark.ml.{Pipeline, PipelineModel}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{abs, col, expr}
 import play.api.inject.ApplicationLifecycle
-import scala.Option
 import scala.util.{Failure, Success, Try}
 
 
@@ -21,16 +18,12 @@ import scala.util.{Failure, Success, Try}
 @Singleton
 class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
 
-  val conf: SparkConf = new SparkConf()
-            .setMaster("local[*]")
-            .setAppName("Classifier")
-
-
-  val spark: SparkSession = SparkSession.builder()
-            .config(conf)
+  lazy val spark: SparkSession = SparkSession.builder()
+          .appName("Classifier")
           .config("executor-memory", 8)
           .config("executor-cores", 4)
-            .getOrCreate()
+          .master("local")
+          .getOrCreate()
 
   val model: PipelineModel = {
     val t = spark.read.option("header","true").option("inferschema","true").csv("/Users/jimzhou/Documents/GitHub/CSYE7200_FinalProject/csye7200_finalproject/public/datas/train.csv")
@@ -42,7 +35,7 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
     val train3 = train2.na.drop()
     val train4 = train3.filter(col("diff_long") < 5).filter(col("diff_lat") < 5).filter(col("fare_amount") > 0).toDF()
     val train5 = train4.drop(col("pickup_datetime")).drop(col("key")).toDF()
-    val sampledData = train5.sample(true, 0.0001)
+    val sampledData = train5.sample(true, 1)
 
     val inputCol = sampledData.columns.filter(!_.equals("fare_amount"))
     val inputVec = new VectorAssembler().setInputCols(inputCol).setOutputCol("features")
@@ -53,6 +46,7 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
     val pipeline = new Pipeline().setStages(Array(inputVec, gbt))
     val Array(train, test) = sampledData.randomSplit(Array(0.8, 0.2))
     pipeline.fit(train)
+//    PipelineModel.load("datas/trained_model")
   }
 //
 //  lazy val model: PipelineModel = {
@@ -128,7 +122,7 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
   }
 
   def retrainDataSet() = {
-    val t = spark.read.option("header","true").option("inferschema","true").csv("mydatas/train.csv")
+    val t = spark.read.option("header","true").option("inferschema","true").csv("datas/train.csv")
     val train1 = t.withColumn("diff_long",expr("dropoff_longitude - pickup_longitude")).
             withColumn("diff_lat",expr("dropoff_latitude - pickup_latitude"))
     val train2=train1.withColumn("diff_long",abs(col("diff_long"))).

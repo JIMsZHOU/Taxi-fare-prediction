@@ -1,11 +1,7 @@
 package controllers
 
 import javax.inject._
-import org.apache.spark.ml.{Pipeline, PipelineModel}
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{abs, col, expr}
 import play.api.mvc._
-import play.inject.Module
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -41,7 +37,7 @@ class HomeController @Inject()(cc: ControllerComponents, df: datasetProcess) ext
     implicit request: Request[AnyContent] =>
       val formData: MyRecord = MyRecord.form.bindFromRequest().get
       newDataSet.append(formData)
-      Ok(views.html.index("Thanks for your contribution!"))
+      Ok(views.html.index("Thank you for your contribution!"))
   }
 
 }

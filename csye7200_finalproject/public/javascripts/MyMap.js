@@ -49,4 +49,13 @@ $("#getCoord").click(function () {
     $("#dropoffcoordinate1").val(markers[1].position.lng());
 });
 
+function action1() {
+    $("form").attr("action", "/getfare");
+    $("form").submit();
+}
+function action2() {
+    $("form").attr("action", "/storeData");
+    $("form").submit();
+}
+
 

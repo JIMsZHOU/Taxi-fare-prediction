@@ -61,7 +61,7 @@
                 <div class="col-xl" id="Form">
                     <div class="container">
                         @* @helper.form(action = helper.CSRF(routes.HomeController.getFare())) {*@
-                        <form method="post" action="@(routes.HomeController.getFare())">
+                        <form method="post" action="">
                             <div class="form-group">
                                 <label for="pickupcoordinate">Pickup Coordinate</label>
                                 <input name="@form("plat").label" type="text" class="form-control" id="pickupcoordinate" placeholder="latitude" value="@form("plat").value">
@@ -82,8 +82,8 @@
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-link" type="button" id="getCoord">Position</button>
-                                <button type="submit" class="btn btn-primary">Check</button>
-                                <button type="button" class="btn btn-secondary">Update</button>
+                                <button type="button" class="btn btn-primary" onclick="action1()">Check</button>
+                                <button type="button" class="btn btn-secondary" onclick="action2()">Update</button>
                             </div>
                         </form>
                     </div>
