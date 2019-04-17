@@ -26,7 +26,7 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
           .getOrCreate()
 
   val model: PipelineModel = {
-    val t = spark.read.option("header","true").option("inferschema","true").csv("/Users/jimzhou/Documents/GitHub/CSYE7200_FinalProject/csye7200_finalproject/public/datas/train.csv")
+    val t = spark.read.option("header","true").option("inferschema","true").csv("train.csv")
 
     val train1 = t.withColumn("diff_long",expr("dropoff_longitude - pickup_longitude")).
             withColumn("diff_lat",expr("dropoff_latitude - pickup_latitude"))
@@ -35,7 +35,7 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
     val train3 = train2.na.drop()
     val train4 = train3.filter(col("diff_long") < 5).filter(col("diff_lat") < 5).filter(col("fare_amount") > 0).toDF()
     val train5 = train4.drop(col("pickup_datetime")).drop(col("key")).toDF()
-    val sampledData = train5.sample(true, 1)
+    val sampledData = train5.sample(true, 0.000001)
 
     val inputCol = sampledData.columns.filter(!_.equals("fare_amount"))
     val inputVec = new VectorAssembler().setInputCols(inputCol).setOutputCol("features")
