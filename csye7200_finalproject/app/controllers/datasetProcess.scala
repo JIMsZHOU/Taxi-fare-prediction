@@ -26,27 +26,42 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
           .getOrCreate()
 
   val model: PipelineModel = {
-    val t = spark.read.option("header","true").option("inferschema","true").csv("train.csv")
+    // val t = spark.read.option("header","true").option("inferschema","true").csv("train.csv")
 
-    val train1 = t.withColumn("diff_long",expr("dropoff_longitude - pickup_longitude")).
-            withColumn("diff_lat",expr("dropoff_latitude - pickup_latitude"))
-    val train2=train1.withColumn("diff_long",abs(col("diff_long"))).
-            withColumn("diff_lat",abs(col("diff_lat")))
-    val train3 = train2.na.drop()
-    val train4 = train3.filter(col("diff_long") < 5).filter(col("diff_lat") < 5).filter(col("fare_amount") > 0).toDF()
-    val train5 = train4.drop(col("pickup_datetime")).drop(col("key")).toDF()
-    val sampledData = train5.sample(true, 0.000001)
+    // val train1 = t.withColumn("diff_long",expr("dropoff_longitude - pickup_longitude")).
+    //         withColumn("diff_lat",expr("dropoff_latitude - pickup_latitude"))
+    // val train2=train1.withColumn("diff_long",abs(col("diff_long"))).
+    //         withColumn("diff_lat",abs(col("diff_lat")))
+    // val train3 = train2.na.drop()
+    // val train4 = train3.filter(col("diff_long") < 5).filter(col("diff_lat") < 5).filter(col("fare_amount") > 0).toDF()
+    // val train5 = train4.drop(col("pickup_datetime")).drop(col("key")).toDF()
+    // val sampledData = train5.sample(true, 0.000001)
 
-    val inputCol = sampledData.columns.filter(!_.equals("fare_amount"))
-    val inputVec = new VectorAssembler().setInputCols(inputCol).setOutputCol("features")
+    // val inputCol = sampledData.columns.filter(!_.equals("fare_amount"))
+    // val inputVec = new VectorAssembler().setInputCols(inputCol).setOutputCol("features")
 
     import org.apache.spark.ml.regression.{GBTRegressionModel, GBTRegressor}
 
+    val dataset = spark.read.option("header","true").option("inferSchema","true").csv("train.csv")
+
+    val data = dataset.where("pickup_longitude!=0 and pickup_latitude!=0 and dropoff_longitude!=0 and dropoff_latitude!=0")
+    val assembler = new VectorAssembler().setInputCols(Array("pickup_longitude", "pickup_latitude","dropoff_longitude","dropoff_latitude", "passenger_count")).setOutputCol("features")
+    val output = assembler.transform(data).select("features", "fare_amount")
+
     val gbt = new GBTRegressor().setLabelCol("fare_amount").setFeaturesCol("features")
-    val pipeline = new Pipeline().setStages(Array(inputVec, gbt))
-    val Array(train, test) = sampledData.randomSplit(Array(0.8, 0.2))
+    val pipeline = new Pipeline().setStages(Array(gbt))
+
+    val sample = output.sample(true, 0.000001)
+
+    val Array(train, test) = sample.randomSplit(Array(0.8, 0.2))
+
     pipeline.fit(train)
-//    PipelineModel.load("datas/trained_model")
+
+//     val gbt = new GBTRegressor().setLabelCol("fare_amount").setFeaturesCol("features")
+//     val pipeline = new Pipeline().setStages(Array(inputVec, gbt))
+//     val Array(train, test) = sampledData.randomSplit(Array(0.8, 0.2))
+//     pipeline.fit(train)
+// //    PipelineModel.load("datas/trained_model")
   }
 //
 //  lazy val model: PipelineModel = {
@@ -72,11 +87,15 @@ class datasetProcess @Inject() (lifeCycle: ApplicationLifecycle){
     val data = Seq(
       (0, myRecord.plng, myRecord.plat, myRecord.dlng, myRecord.dlat, myRecord.pc)
     ).toDF("fare_amount", "pickup_longitude", "pickup_latitude", "dropoff_longitude", "dropoff_latitude", "passenger_count")
-    val train1 = data.withColumn("diff_long",expr("dropoff_longitude - pickup_longitude")).
-            withColumn("diff_lat",expr("dropoff_latitude - pickup_latitude"))
-    val train2=train1.withColumn("diff_long",abs(col("diff_long"))).
-            withColumn("diff_lat",abs(col("diff_lat")))
-    val sampleData = train2.sample(true, 1)
+    // val train1 = data.withColumn("diff_long",expr("dropoff_longitude - pickup_longitude")).
+    //         withColumn("diff_lat",expr("dropoff_latitude - pickup_latitude"))
+    // val train2=train1.withColumn("diff_long",abs(col("diff_long"))).
+    //         withColumn("diff_lat",abs(col("diff_lat")))
+
+    val assembler = new VectorAssembler().setInputCols(Array("pickup_longitude", "pickup_latitude","dropoff_longitude","dropoff_latitude", "passenger_count")).setOutputCol("features")
+    val sampleData = assembler.transform(data).select("features", "fare_amount")
+    
+    // val sampleData = train2.sample(true, 1)
     val result = model.transform(sampleData)
     val fare: Option[Double] = Try(result.select(col("prediction")).head().getDouble(0)) match {
       case Success(a) => Option(a)
